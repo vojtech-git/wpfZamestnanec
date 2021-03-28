@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace wpfZamestnanec
 {
@@ -28,6 +29,18 @@ namespace wpfZamestnanec
         private void switchFormButton_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void TextBox_PreviewTextInput_1(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 
@@ -55,7 +68,7 @@ namespace wpfZamestnanec
         {
             HighestEducation = _highestEducation;
             Position = _position;
-            Salary = _salary;
+            Salary = _salary;   
         }
     }
 }

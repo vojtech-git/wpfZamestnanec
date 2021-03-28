@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpfZamestnanec"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" FontSize="18" >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
-            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
@@ -18,14 +20,33 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Text="Vaše jmeno zde:" Margin="20"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="Formulář pro zaměstnance" FontSize="24" FontWeight="Bold" Grid.ColumnSpan="2" Margin="0,20"/>
+        
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="jméno:"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" Text="příjmení:"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" Text="rok narození:"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" Text="nejvyšší dokončené vzdělání:"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" Text="pracovní pozici:"/>
+        <TextBlock Grid.Row="7" Grid.Column="1" Text="hrubý plat v korunách:"/>
 
-        <TextBox x:Name="inputJmeno" Grid.Column="2" Grid.Row="1" Width="300" Height="50" HorizontalAlignment="Left" />
-
-        <Button x:Name="switchFormButton" Content="Potvrdit ඞ" Grid.Column="2" Grid.Row="2" Margin="20,50" Click="switchFormButton_Click"/>
+        <TextBox Grid.Row="2" Grid.Column="3" Width="250" Margin="0,5"/>
+        <TextBox Grid.Row="3" Grid.Column="3" Width="250" Margin="0,5"/>
+        <TextBox Grid.Row="4" Grid.Column="3" Width="250" Margin="0,5" PreviewTextInput="TextBox_PreviewTextInput"/>
+        <ComboBox Grid.Row="5" Grid.Column="3">
+            <ComboBoxItem IsSelected="True">Základní škola</ComboBoxItem>
+            <ComboBoxItem>Střední skola s maturitou</ComboBoxItem>
+            <ComboBoxItem>Střední skola bez maturity</ComboBoxItem>
+            <ComboBoxItem>Vysoká skola</ComboBoxItem>
+        </ComboBox>
+        <TextBox Grid.Row="6" Grid.Column="3" Width="250" Margin="0,5"/>
+        <TextBox Grid.Row="7" Grid.Column="3" Width="250" Margin="0,5" PreviewTextInput="TextBox_PreviewTextInput_1"/>
     </Grid>
 </Window>
