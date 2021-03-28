@@ -24,6 +24,7 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
@@ -37,16 +38,19 @@
         <TextBlock Grid.Row="6" Grid.Column="1" Text="pracovní pozici:"/>
         <TextBlock Grid.Row="7" Grid.Column="1" Text="hrubý plat v korunách:"/>
 
-        <TextBox Grid.Row="2" Grid.Column="3" Width="250" Margin="0,5"/>
-        <TextBox Grid.Row="3" Grid.Column="3" Width="250" Margin="0,5"/>
-        <TextBox Grid.Row="4" Grid.Column="3" Width="250" Margin="0,5" PreviewTextInput="TextBox_PreviewTextInput"/>
-        <ComboBox Grid.Row="5" Grid.Column="3">
+        <TextBox x:Name="nameInput" Grid.Row="2" Grid.Column="3" Width="250" Margin="0,5"/>
+        <TextBox x:Name="surnameInput" Grid.Row="3" Grid.Column="3" Width="250" Margin="0,5"/>
+        <TextBox x:Name="birthYearInput" Grid.Row="4" Grid.Column="3" Width="250" Margin="0,5" PreviewTextInput="TextBox_PreviewTextInput"/>
+        <ComboBox x:Name="educationInput" Grid.Row="5" Grid.Column="3" Width="250">
             <ComboBoxItem IsSelected="True">Základní škola</ComboBoxItem>
             <ComboBoxItem>Střední skola s maturitou</ComboBoxItem>
             <ComboBoxItem>Střední skola bez maturity</ComboBoxItem>
             <ComboBoxItem>Vysoká skola</ComboBoxItem>
         </ComboBox>
-        <TextBox Grid.Row="6" Grid.Column="3" Width="250" Margin="0,5"/>
-        <TextBox Grid.Row="7" Grid.Column="3" Width="250" Margin="0,5" PreviewTextInput="TextBox_PreviewTextInput_1"/>
+        <TextBox x:Name="positionInput" Grid.Row="6" Grid.Column="3" Width="250" Margin="0,5"/>
+        <TextBox x:Name="salaryInput" Grid.Row="7" Grid.Column="3" Width="250" Margin="0,5" PreviewTextInput="TextBox_PreviewTextInput_1"/>
+
+        <Button Grid.Row="8" Grid.Column="4" Content="Potrvdit" Margin="25,35" Click="switchFormButton_Click"/>
+        <Button Grid.Row="8" Grid.Column="3" Content="Zobrazit všechny zaměstnance" Margin="25,35" Click="Button_Click"/>
     </Grid>
 </Window>

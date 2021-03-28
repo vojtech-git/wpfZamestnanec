@@ -24,11 +24,29 @@ namespace wpfZamestnanec
         public MainWindow()
         {
             InitializeComponent();
+            
         }
+
+        public List<Zamestanec> zamestnanci = new List<Zamestanec>();
 
         private void switchFormButton_Click(object sender, RoutedEventArgs e)
         {
+            if (nameInput.Text != "" && surnameInput.Text != "" && birthYearInput.Text != "" && positionInput.Text != "" && salaryInput.Text != "")
+            {
+                string name = nameInput.Text;
+                string surname = surnameInput.Text;
+                int birthYear = Convert.ToInt32(birthYearInput.Text);
+                string education = Convert.ToString(educationInput.SelectionBoxItem);
+                string position = positionInput.Text;
+                int salary = Convert.ToInt32(salaryInput.Text);
 
+                zamestnanci.Add(new Zamestanec(name, surname, birthYear, education, position, salary));
+                MessageBox.Show("Zaměstnanec přidán do seznamu.");
+            }
+            else
+            {
+                MessageBox.Show("Je potřeba vyplnit všechna pole.");
+            }
         }
 
         private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -41,6 +59,14 @@ namespace wpfZamestnanec
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < zamestnanci.Count; i++)
+            {
+                MessageBox.Show("Zaměstnanec " + zamestnanci[i].Name + " " + zamestnanci[i].Surname + "\nJeho informace: " + " rok narození: " + zamestnanci[i].BirthYear + " úroveň vzdělání: " + zamestnanci[i].HighestEducation + " pozice: " + zamestnanci[i].Position + " plat: " + zamestnanci[i].Salary + "kč\n");
+            }
         }
     }
 
